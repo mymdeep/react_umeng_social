@@ -18,8 +18,9 @@ RCT_EXPORT_METHOD(show:(NSString *)text image:(NSString *)image url:(NSString *)
   webobj.webpageUrl = url;
   messageObject.shareObject = webobj;
   dispatch_sync(dispatch_get_main_queue(), ^{
+    
     //主线程更新
-    [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_WechatSession messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+    [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_QQ messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
 
       
       NSString *message = nil;
