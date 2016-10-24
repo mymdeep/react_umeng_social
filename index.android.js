@@ -22,34 +22,50 @@ var UMENGREACT =React.createClass({
       <View style={styles.container}>
 
       <TouchableOpacity onPress = {this._share}>
+      <Text style={styles.welcome}>
+        分享!
+      </Text>
    </TouchableOpacity>
    <TouchableOpacity onPress={this._auth}>
    <Text style={styles.welcome}>
-     auth!
+     授权!
    </Text>
 </TouchableOpacity>
 <TouchableOpacity onPress={this._getinfo}>
 <Text style={styles.welcome}>
-  get user info!
+  用户资料!
+</Text>
+
+</TouchableOpacity>
+<TouchableOpacity onPress={this._shareboard}>
+<Text style={styles.welcome}>
+  打开分享面板!
 </Text>
 </TouchableOpacity>
+
   </View>
 );
 },
+_shareboard:function(){
+    ShareView.shareboard('sssss','http://dev.umeng.com/images/tab2_1.png','http://dev.umeng.com','fff',(code,message) =>{
+      this.setState({result:message});
+      alert(message);
+    });
+},
 _share:function(){
-    ShareView.share('sssss','http://dev.umeng.com/images/tab2_1.png',0,(code,message) =>{
+    ShareView.share('sssss','http://dev.umeng.com/images/tab2_1.png','','',0,(code,message) =>{
       this.setState({result:message});
       alert(message);
     });
 },
     _auth:function(){
-      ShareView.auth((message) =>{
+      ShareView.auth(0,(code,message) =>{
         this.setState({result:message});
         alert(message);
       });
     },
     _getinfo:function(){
-      ShareView.get((message) =>{
+      ShareView.get(0,(code,message) =>{
         this.setState({result:message});
         alert(message);
       });

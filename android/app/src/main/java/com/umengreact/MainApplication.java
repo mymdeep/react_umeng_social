@@ -8,7 +8,9 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.soexample.BuildConfig;
 //import com.umengreact.BuildConfig;
 
@@ -38,6 +40,9 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    Config.shareType = "react native";
+    UMShareAPI.get(this);
+
   }
 
   //各个平台的配置，建议放在全局Application或者程序入口
