@@ -28,7 +28,7 @@
 
   //打开日志
   [[UMSocialManager defaultManager] openLog:YES];
-  
+  [UMSocialGlobal shareInstance].type = @"react native";
   // 获取友盟social版本号
   NSLog(@"UMeng social version: %@", [UMSocialGlobal umSocialSDKVersion]);
   
